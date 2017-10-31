@@ -296,6 +296,30 @@
           </div>
           <!-- /top tiles -->
 
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="dashboard_graph x_panel">
+                  <div class="row x_title">
+                    <div class="col-md-6">
+                      <h3>Network Activities <small>Graph title sub-title</small></h3>
+                    </div>
+                    <div class="col-md-6">
+                      <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                        <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="x_content">
+                    <div class="demo-container" style="height:250px">
+                      <div id="placeholder3xx3" class="demo-placeholder" style="width: 100%; height:250px;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="dashboard_graph">
@@ -1078,6 +1102,68 @@
         function gd(year, month, day) {
           return new Date(year, month - 1, day).getTime();
         }
+      });
+    </script>
+    <!-- /Flot -->
+    
+        <!-- Flot -->
+    <script>
+    
+      $(document).ready(function() {
+        //random data
+        var d1 = [
+          [0, 1],
+          [1, 9],
+          [2, 6],
+          [3, 10],
+          [4, 5],
+          [5, 17],
+          [6, 6],
+          [7, 10],
+          [8, 7],
+          [9, 11],
+          [10, 35],
+          [11, 9],
+          [12, 12],
+          [13, 5],
+          [14, 3],
+          [15, 4],
+          [16, 9]
+        ];
+
+        //flot options
+        var options = {
+          series: {
+            curvedLines: {
+              apply: true,
+              active: true,
+              monotonicFit: true
+            }
+          },
+          colors: ["#26B99A"],
+          grid: {
+            borderWidth: {
+              top: 0,
+              right: 0,
+              bottom: 1,
+              left: 1
+            },
+            borderColor: {
+              bottom: "#7F8790",
+              left: "#7F8790"
+            }
+          }
+        };
+        var plot = $.plot($("#placeholder3xx3"), [{
+          label: "Registrations",
+          data: d1,
+          lines: {
+            fillColor: "rgba(150, 202, 89, 0.12)"
+          }, //#96CA59 rgba(150, 202, 89, 0.42)
+          points: {
+            fillColor: "#fff"
+          }
+        }], options);
       });
     </script>
     <!-- /Flot -->
